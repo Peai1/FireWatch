@@ -1,0 +1,83 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html>
+
+<head>
+    <title>FIREWATCH</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i,700">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://kit.fontawesome.com/62e0fa78f7.js" crossorigin="anonymous"></script>
+         
+</head>
+
+<body id="bg" style="background-image: url('{% static 'img/incendio2.png' %}');">
+    
+  <div id='navbar'>
+    <ul>
+      <li><a href="{% url 'inicio' %}">FIREWATCH</a></li>
+      <li><a href="{% url 'inicio' %}">Inicio</a></li>
+      <li><a href="{% url 'incendios' %}">¿Por qué debemos prevenir los incendios?</a></li>
+      <li><a href="#">Mapa</a></li>
+    </ul>
+  </div>
+    
+  <h1>Seleccione mediante que opción desea realizar el reporte del incendio:</h1>
+
+  <div class="move-me">
+      <button class="btn-1">
+          <a href="{% url 'ingresar_direccion' %}" style="text-decoration: none;">Escribiendo una ubicación</a>
+      </button>
+      
+      <button class="btn-2">
+          <a href="{% url 'ubicacion_usuario' %}" style="text-decoration: none;">En mi ubicación</a>
+      </button>
+      
+      <button class="btn-3">
+          <a href="{% url 'puntero' %}" style="text-decoration: none;">Con el Mouse</a>
+      </button>
+  </div>
+  
+  <div class="container">
+      <div class="mapa_">
+          <div class="mapa__">
+              {{ m|safe }}
+          </div>
+      </div>
+  </div> 
+
+  <section id="app">
+    <h1>Comentarios:</h1>
+    <h2>Puedes realizar comentarios sobre incendios que ya no se encuentran activos o todavia lo están. 
+      <br>Por favor indicar la dirección del incendio
+      en el mapa.
+    </h2>
+    <div class="container2">
+      <div class="row">
+        <div class="col-6">
+          <div class="comment">
+            {% for item in all %}
+            <h3>{{ item.comment_body }}</h3>
+            <p>by: {{ item.commenter_name }} | {{ item.date_added }}</p>
+            {% endfor %}
+          </div><!--End Comment-->
+          </div><!--End col -->
+          </div><!-- End row -->
+      <div class="row">
+        <div class="col-6">
+          <button v-on:click="addItem()" class='primaryContained float-right' type="submit">
+            <a href="{% url 'comentarios' %}" style="text-decoration: none;">Realizar un comentario</a>
+          </button>
+        </div><!-- End col -->
+      </div><!--End Row -->
+    </div><!--End Container -->
+  </section><!-- end App -->
+
+
+</body>
+
+</html>

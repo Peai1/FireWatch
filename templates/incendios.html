@@ -1,0 +1,71 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html>
+
+<head>
+    <title>FIREWATCH</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i,700">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/incendios.css' %}">
+    <script src="https://kit.fontawesome.com/62e0fa78f7.js" crossorigin="anonymous"></script>    
+</head>
+
+<body id="bg" style="background-image: url('{% static 'img/incendio2.png' %}');">  
+  
+  <div id='navbar'>
+    <ul>
+      <li><a href="{% url 'inicio' %}">FIREWATCH</a></li>
+      <li><a href="{% url 'inicio' %}">Inicio</a></li>
+      <li><a href="#">¿Por qué debemos prevenir los incendios?</a></li>
+      <li><a href="{% url 'mostrar_mapa' %}">Mapa</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <h1>Consecuencias de los incendios forestales</h1>
+    <img class="img1" src="{% static 'img/incendio1.png' %}" alt="firewatch">
+
+    <div class="text">
+      - Los incendios forestales acaban con la vida silvestre y la vegetación
+      <br/>
+      <br/>
+      - El suelo del área del incendio sufre irreparablemente
+      <br/>
+      <br/>
+      - Extinción de especies que viven en lugares proclives a los incendios forestales
+      <br/>
+      <br/>
+      - Retroceso en la lucha contra el cambio climático. Los árboles y las plantas ayudan a producir oxígeno en el mundo
+    </div>
+  </div>
+
+  <div class="container2">
+    <img class="img2" src="{% static 'img/consc.png' %}" alt="firewatch">
+
+    <div class="text2">
+      - Contaminación del aire debido a las grandes cantidades de humo que se libera a la atmósfera.
+      <br/>
+      <br/>
+      - La ceniza y el humo pueden causar serios problemas de salud a las personas que padecen alergias y otros problemas médicos
+      <br/>
+      <br/>
+      - Pérdida de ingresos para los trabajadores agrícolas cuyos cultivos y animales fueron destruidos por el incendio forestal
+      <br/>
+      - El exceso de agua utilizada para extinguir los incendios puede causar la erosión del suelo
+    </div>
+  </div>
+
+  <div class="container3">
+    <h3> Ayudanos a prevenirlos! </h3>
+
+    <center><img class="img3" src="{% static 'img/prevenir3.png' %}" alt="firewatch"></center>
+
+    <div class="text3">
+      <p>Para mayor información puedes visitar: <a href="https://www.conaf.cl/incendios-forestales/" style="text-decoration: none;">https://www.conaf.cl/incendios-forestales/</a></p>
+
+    </div>
+</body>

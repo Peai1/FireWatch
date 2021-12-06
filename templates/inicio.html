@@ -1,0 +1,49 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html>
+
+<head>
+    <title>FIREWATCH</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <script src="https://kit.fontawesome.com/62e0fa78f7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i,700">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/inicio.css' %}">
+
+         
+</head>
+
+<body id="bg" style="background-image: url('{% static 'img/incendio2.png' %}');"> 
+    <div id='navbar'>
+      <ul>
+        <li><a href="{% url 'inicio' %}">FIREWATCH</a></li>
+        <li><a href="#"><i class="fa-thin fa-house"></i>Inicio</a></li>
+        <li><a href="{% url 'incendios' %}">¿Por qué debemos prevenir los incendios?</a></li>
+        <li><a href="{% url 'mostrar_mapa' %}">Mapa</a></li>
+      </ul>
+    </div>
+
+    <h1>
+      Bienvenidos a FireWatch
+    </h1>
+    <div class="container">
+      <img class="img1" src="{% static 'img/badge.png' %}" alt="firewatch">
+
+      <div class="text">
+        Firewatch es un sitio web creado con el propósito de poder realizar reportes de todo tipo de incendios y además crear consciencia con un tipo en especifico de ellos, los incendios 
+        forestales, que durante todo el año pero especialmente en verano arrasan con millones de hectarias, 
+        afectando a todo el ecosistema en el que vivimos.
+        <br/>
+    
+      </div>
+
+
+    </div>
+   
+       
+</body>
+
+</html>

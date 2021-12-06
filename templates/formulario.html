@@ -1,0 +1,46 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<head>
+    <title>FIREWATCH</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i,700">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://kit.fontawesome.com/62e0fa78f7.js" crossorigin="anonymous"></script>
+    
+</head>
+
+<body id="bg" style="background-image: url('{% static 'img/incendio2.png' %}');"> 
+    <div id='navbar'>
+        <ul>
+          <li><a href="{% url 'inicio' %}">FIREWATCH</a></li>
+          <li><a href="{% url 'inicio' %}">Inicio</a></li>
+          <li><a href="{% url 'ingresar_direccion' %}">¿Por qué debemos prevenir los incendios?</a></li>
+          <li><a href="#">Mapa</a></li>
+        </ul>
+      </div>
+
+    <h1>Para realizar el reporte mendiante la opción seleccionada, debes hacer click en el mapa en la ubicación deseada, luego clickear el pin, copiar la latitud y longitud y pegarlas en el siguiente formato "Latitud,Longitud" </h1>
+    <!--Botones-->
+    <div>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Ingresar</button>
+        </form>
+    <div>
+    <h2>{{ lat_lng }}</h2>
+
+
+    <!-- MAPA -->
+    <div class="container">
+        <div class="mapa_">
+            <div class="mapa__">
+                {{ m|safe }}
+            </div>
+        </div>
+    </div>
+</body>

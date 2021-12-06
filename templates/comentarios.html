@@ -1,0 +1,43 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html>
+
+<head>
+    <title>FIREWATCH</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <script src="https://kit.fontawesome.com/62e0fa78f7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i,700">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/comentarios.css' %}">
+
+         
+</head>
+
+<body id="bg" style="background-image: url('{% static 'img/incendio2.png' %}');"> 
+    <div id='navbar'>
+      <ul>
+        <li><a href="{% url 'inicio' %}">FIREWATCH</a></li>
+        <li><a href="#"><i class="fa-thin fa-house"></i>Inicio</a></li>
+        <li><a href="{% url 'incendios' %}">¿Por qué debemos prevenir los incendios?</a></li>
+        <li><a href="{% url 'mostrar_mapa' %}">Mapa</a></li>
+      </ul>
+    </div>
+
+    <div class="form-group">
+      <table>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_table }}
+      </table>
+      <button class="btn-4" type="submit">Ingresar</button>
+      </form>
+    </div>
+
+
+
+</body>
+
+</html>
